@@ -43,6 +43,8 @@ class Application(FuncoesApp): ##Classe que irar inicializar a aplicação
     def FramesDeTela(self):
         self.frame = Frame(self.windowCadastroCliente, border=80, )
         self.frame.place(relx=0.02,rely=0.20, relwidth=0.95, relheight=0.70)
+        self.frame1 = Frame(self.windowCadastroCliente, background='blue')
+        self.frame1.place(relx=0.02,rely=0.01, relwidth=0.95, relheight=0.17)
     
     def LabelsEntry(self):
         self.lbCodigo = Label(self.frame, text='Código:')
