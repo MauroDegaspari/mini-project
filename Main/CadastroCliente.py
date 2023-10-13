@@ -1,8 +1,12 @@
 from tkinter import *
+from db_sqlite import BancoDeDados
+import db_sqlite
+
+
 
 windowCadastroCliente = Tk()
 
-class FuncoesBotoes():
+class FuncoesApp():
     def bt_limpar(self):
         self.entryCodigo.delete(0,END)
         self.entryNome.delete(0,END)
@@ -18,14 +22,11 @@ class FuncoesBotoes():
         self.entryRG.delete(0,END)
         self.entryCPF.delete(0,END)
 
-    
-
-
-
-class Application(FuncoesBotoes): ##Classe que irar inicializar a aplicação
+class Application(FuncoesApp): ##Classe que irar inicializar a aplicação
     def __init__(self):
         self.windowCadastroCliente = windowCadastroCliente
         self.TelaConfig()
+        BancoDeDados()
         self.FramesDeTela()
         self.LabelsEntry()
         self.Botoes()
