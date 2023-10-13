@@ -2,12 +2,10 @@ from tkinter import *
 from db_sqlite import BancoDeDados
 import db_sqlite
 
-
-
 windowCadastroCliente = Tk()
 
 class FuncoesApp():
-    def bt_limpar(self):
+    def btn_limpar(self):
         self.entryCodigo.delete(0,END)
         self.entryNome.delete(0,END)
         self.entryEmail.delete(0,END)
@@ -116,8 +114,18 @@ class Application(FuncoesApp): ##Classe que irar inicializar a aplicação
         self.entryCPF.place(relx=0.20, rely=0.28,relwidth=0.11, relheight=0.05 )
 
     def Botoes(self):
-        self.btLimpar = Button(self.frame, text="Limpar", command=self.bt_limpar)
-        self.btLimpar.place(relx=0.90, rely=0.01,relwidth=0.1, relheight=0.2 )
+
+        self.btnNovo = Button(self.frame, text='+Novo')
+        self.btnNovo.place(relx=0.62, rely=0.03, relwidth=0.1, relheight=0.2)
+
+        self.btnSalvar = Button(self.frame, text='Salvar')
+        self.btnSalvar.place(relx=0.73, rely=0.03, relwidth=0.1, relheight=0.2)
+
+        self.btnExcluir = Button(self.frame, text='Excluir')
+        self.btnExcluir.place(relx=0.84, rely=0.03, relwidth=0.1, relheight=0.2)
+       
+        self.btnLimpar = Button(self.frame, text="Limpar", command=self.btn_limpar)
+        self.btnLimpar.place(relx=0.95, rely=0.03,relwidth=0.1, relheight=0.2 )
 
         self.btPesquisa = Button(self.frame, text='Pesquisa')
         self.btPesquisa.place(relx=0.33, rely=-0.04,relwidth=0.12, relheight=0.09 )
