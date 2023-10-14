@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 from db_sqlite import *
 
 
@@ -22,7 +23,7 @@ class FuncoesApp():
 
     def btn_novo(self):
        self.cod = self.entryCodigo.get()
-       self.nome = self.entryNome.get()
+       self.nome = str(self.entryNome.get())
        self.email = self.entryEmail.get()
        self.celular = self.entryCelular.get()
        self.fixo = self.entryFixo.get()
@@ -34,8 +35,11 @@ class FuncoesApp():
        self.complemento = self.entryComplemento.get()
        self.rg = self.entryRG.get()
        self.cpf = self.entryCPF.get()
-    
-       NovoCliente(self.nome,self.rg, self.cpf)
+
+       if (self.nome == "" or self.cpf == "" or self.rg == ""):
+          messagebox.showinfo('Validação', 'Os Campos: Nome, Rg e CPF são obrigatórios.')
+       else:
+           NovoCliente(self.nome, self.rg, self.cpf)
 
 
 
