@@ -1,6 +1,6 @@
 from tkinter import *
-from db_sqlite import BancoDeDados
-import db_sqlite
+from db_sqlite import *
+
 
 windowCadastroCliente = Tk()
 
@@ -19,6 +19,25 @@ class FuncoesApp():
         self.entryComplemento.delete(0,END)
         self.entryRG.delete(0,END)
         self.entryCPF.delete(0,END)
+
+    def btn_novo(self):
+       self.cod = self.entryCodigo.get()
+       self.nome = self.entryNome.get()
+       self.email = self.entryEmail.get()
+       self.celular = self.entryCelular.get()
+       self.fixo = self.entryFixo.get()
+       self.cep = self.entryCEP.get()
+       self.endereco = self.entryEndereco.get()
+       self.numero = self.entryNumero.get()
+       self.bairro = self.entryBairro.get()
+       self.cidade = self.entryCidade.get()
+       self.complemento = self.entryComplemento.get()
+       self.rg = self.entryRG.get()
+       self.cpf = self.entryCPF.get()
+    
+       NovoCliente(self.nome,self.rg, self.cpf)
+
+
 
 class Application(FuncoesApp): ##Classe que irar inicializar a aplicação
     def __init__(self):
@@ -115,7 +134,7 @@ class Application(FuncoesApp): ##Classe que irar inicializar a aplicação
 
     def Botoes(self):
 
-        self.btnNovo = Button(self.frame, text='+Novo')
+        self.btnNovo = Button(self.frame, text='+Novo', command=self.btn_novo)
         self.btnNovo.place(relx=0.62, rely=0.03, relwidth=0.1, relheight=0.2)
 
         self.btnSalvar = Button(self.frame, text='Salvar')
