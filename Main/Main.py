@@ -32,7 +32,7 @@ class Application():
         self.btnProduto = Button(self.index,text='PRODUTOS')
         self.btnProduto.place(relx=0.88, rely=0.55, relwidth=0.1, relheight=0.2)
 
-        self.btnFuncionarios = Button(self.index,text='Funcionarios')
+        self.btnFuncionarios = Button(self.index,text='PRODUTOS')
         self.btnFuncionarios.place(relx=0.88, rely=0.76, relwidth=0.1, relheight=0.2)
 
         self.btnPagamento = Button(self.index,text='PAGAMENTO', background='#00FF7F')
