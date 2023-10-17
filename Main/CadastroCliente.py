@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
+from tkinter import ttk
 from db_sqlite import *
 
 
@@ -26,7 +27,7 @@ class FuncoesApp():
        self.nome = str(self.entryNome.get())
        self.email = self.entryEmail.get()
        self.celular = self.entryCelular.get()
-       self.fixo = self.entryFixo.get()
+       self.telefone = self.entryFixo.get()
        self.cep = self.entryCEP.get()
        self.endereco = self.entryEndereco.get()
        self.numero = self.entryNumero.get()
@@ -39,8 +40,14 @@ class FuncoesApp():
        if (self.nome == "" or self.cpf == "" or self.rg == ""):
           messagebox.showinfo('Validação', 'Os Campos: Nome, Rg e CPF são obrigatórios.')
        else:
-           NovoCliente(self.nome, self.rg, self.cpf)
+           NovoCliente(self.nome, self.rg, self.cpf,self.email,self.telefone,self.cep,self.endereco,self.numero,self.complemento,self.bairro, self.cidade,)
 
+    def Select_ListaCliente(self):
+        ##self.lista.delete(*self.lista.get_children)
+        SelectCliente(self.lista)
+
+
+        self.btn_limpar()
 
 
 class Application(FuncoesApp): ##Classe que irar inicializar a aplicação
@@ -50,7 +57,9 @@ class Application(FuncoesApp): ##Classe que irar inicializar a aplicação
         BancoDeDados()
         self.FramesDeTela()
         self.LabelsEntry()
+        self.listaClientes()
         self.Botoes()
+        self.Select_ListaCliente()
         windowCadastroCliente.mainloop()
 
     def TelaConfig(self): ## Configuração de tela
@@ -135,6 +144,44 @@ class Application(FuncoesApp): ##Classe que irar inicializar a aplicação
         self.lbCPF.place(relx=0.16, rely=0.28)
         self.entryCPF = Entry(self.frame)
         self.entryCPF.place(relx=0.20, rely=0.28,relwidth=0.11, relheight=0.05 )
+
+    def listaClientes(self):
+        self.lista = ttk.Treeview(self.frame, height= 3, columns=("col1","col2","col3","col4","col5","col6","col7","col8","col9","col10","col11","col2","col3","col4"))
+        self.lista.heading("#0", text="Cód")
+        self.lista.heading("#1", text="Nome")
+        self.lista.heading("#2", text="RG")
+        self.lista.heading("#3", text="CPF")
+        self.lista.heading("#4", text="Email")
+        self.lista.heading("#5", text="Telefone")
+        self.lista.heading("#6", text="Celular")
+        self.lista.heading("#7", text="Cep")
+        self.lista.heading("#8", text="Endereco")
+        self.lista.heading("#9", text="Numero")
+        self.lista.heading("#10", text="Complemento")
+        self.lista.heading("#11", text="Bairro")
+        self.lista.heading("#12", text="Cidade") 
+        self.lista.heading("#13", text="estado")
+    
+        self.lista.column("#0", width=50)
+        self.lista.column("#1", width=100)
+        self.lista.column("#2", width=100)
+        self.lista.column("#3", width=100)
+        self.lista.column("#4", width=80)
+        self.lista.column("#5", width=80)
+        self.lista.column("#6", width=80)
+        self.lista.column("#7", width=140)
+        self.lista.column("#8", width=25)
+        self.lista.column("#9", width=140)
+        self.lista.column("#10", width=100)
+        self.lista.column("#11", width=80)
+        self.lista.column("#12", width=15)
+        self.lista.column("#13", width=15)
+
+        self.lista.place(relx=-0.01,rely=0.37, relwidth=1.05, relheight=0.70)
+
+        self.scrool = Scrollbar(self.frame, orient='vertical')
+        self.lista.configure(yscroll=self.scrool.set)
+        self.scrool.place(relx=1.02, rely=0.42, relwidth=0.02,relheight=0.60 )
 
     def Botoes(self):
 
