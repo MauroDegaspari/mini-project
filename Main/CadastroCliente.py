@@ -23,7 +23,7 @@ class FuncoesApp():
         self.entryCPF.delete(0,END)
 
     def btn_novo(self):
-       self.cod = self.entryCodigo.get()
+       ##self.cod = self.entryCodigo.get()
        self.nome = str(self.entryNome.get())
        self.email = self.entryEmail.get()
        self.celular = self.entryCelular.get()
@@ -36,18 +36,16 @@ class FuncoesApp():
        self.complemento = self.entryComplemento.get()
        self.rg = self.entryRG.get()
        self.cpf = self.entryCPF.get()
+       self.estado ="PE"
 
        if (self.nome == "" or self.cpf == "" or self.rg == ""):
           messagebox.showinfo('Validação', 'Os Campos: Nome, Rg e CPF são obrigatórios.')
-       else:
-           NovoCliente(self.nome, self.rg, self.cpf,self.email,self.telefone,self.cep,self.endereco,self.numero,self.complemento,self.bairro, self.cidade,)
-
+       else:            
+           NovoCliente(self.nome, self.rg, self.cpf,self.email,self.telefone,self.celular,self.cep,self.endereco,self.numero,self.complemento,self.bairro, self.cidade, self.estado)
+           self.btn_limpar()
     def Select_ListaCliente(self):
-        ##self.lista.delete(*self.lista.get_children)
+        ##self.lista.delete(self.lista.get_children)
         SelectCliente(self.lista)
-
-
-        self.btn_limpar()
 
 
 class Application(FuncoesApp): ##Classe que irar inicializar a aplicação
@@ -146,8 +144,8 @@ class Application(FuncoesApp): ##Classe que irar inicializar a aplicação
         self.entryCPF.place(relx=0.20, rely=0.28,relwidth=0.11, relheight=0.05 )
 
     def listaClientes(self):
-        self.lista = ttk.Treeview(self.frame, height= 3, columns=("col1","col2","col3","col4","col5","col6","col7","col8","col9","col10","col11","col2","col3","col4"))
-        self.lista.heading("#0", text="Cód")
+        self.lista = ttk.Treeview(self.frame, height= 3, columns=("col0","col1","col2","col3","col4","col5","col6","col7","col8","col9","col10","col11","col2","col3"))
+        self.lista.heading("#0", text="id")
         self.lista.heading("#1", text="Nome")
         self.lista.heading("#2", text="RG")
         self.lista.heading("#3", text="CPF")
@@ -161,7 +159,7 @@ class Application(FuncoesApp): ##Classe que irar inicializar a aplicação
         self.lista.heading("#11", text="Bairro")
         self.lista.heading("#12", text="Cidade") 
         self.lista.heading("#13", text="estado")
-    
+  
         self.lista.column("#0", width=50)
         self.lista.column("#1", width=100)
         self.lista.column("#2", width=100)

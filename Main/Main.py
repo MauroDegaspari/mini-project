@@ -23,7 +23,7 @@ class Application():
 
     def Botoes(self):
             ## INDEX
-        self.btnClientes = Button(self.index,text='CLIENTES', command=self.TelaCadastroCliente)
+        self.btnClientes = Button(self.index,text='CLIENTES', command=self.ChamaTelaCadastroCliente)
         self.btnClientes.place(relx=0.88, rely=0.13, relwidth=0.1, relheight=0.2)
 
         self.btnFornecedor = Button(self.index,text='Fornecedores')
@@ -132,11 +132,12 @@ class Application():
         self.frame3 = Frame(self.index,border=80, background= '#D2B48C')
         self.frame3.place(relx=0.59,rely=0.67, relwidth=0.28, relheight=0.13)
 
-    def TelaCadastroCliente(self):
+    def ChamaTelaCadastroCliente(self):
             from CadastroCliente import Application
             self.janela = Toplevel(Application)
             self.janela.focus_force()
             self.janela.grab_set()
+            self.janela.mainloop()
             
         
 

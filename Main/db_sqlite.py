@@ -30,14 +30,16 @@ def BancoDeDados():
 
 def NovoCliente(nome, rg, cpf, email, telefone, celular, cep, endereco, numero, complemento, bairro, cidade, estado):
     conn = sqlite3.connect('banco/Script_BD_Vendas.db');
-    conn.execute(""" INSERT INTO tb_clientes(nome, rg, cpf, email, telefone, celular, cep, endereco, numero, complemento, bairro, cidade, estado) VALUES(?, ?, ?) """,(nome, rg, cpf, email, telefone, celular, cep, endereco, numero, complemento, bairro, cidade, estado)); print('DADOS INSERIDO')
+    conn.execute(""" INSERT INTO tb_clientes(nome, rg, cpf, email, telefone, celular, cep, endereco, numero, complemento, bairro, cidade, estado) VALUES(?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?,?) """,(nome, rg, cpf, email, telefone, celular, cep, endereco, numero, complemento, bairro, cidade, estado)); 
+    print('DADOS INSERIDO')
     conn.commit();
     desconectar_bd();
-    SelectCliente();
+   ## SelectCliente();
 
 def SelectCliente(lista):
     conn = sqlite3.connect('banco/Script_BD_Vendas.db');
-    listaSQL = cursor.execute(""" SELECT id, nome, rg, cpf, email, telefone, celular, cep, endereco, numero, complemento, bairro, cidade, estado FROM tb_clientes ORDER BY nome ASC""")
+    listaSQL = cursor.execute(""" SELECT id, nome, rg, cpf, email, telefone, celular, cep, endereco, numero, complemento, bairro, cidade, estado FROM tb_clientes ORDER BY id DESC""")
+    
     for i in listaSQL:
         lista.insert("",END ,  values=i)
     desconectar_bd();
