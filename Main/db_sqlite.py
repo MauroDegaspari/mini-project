@@ -52,6 +52,10 @@ def BancoDeDados():
                   
     
     print('Conexão com Bando de dados--> SUCESSO ');
+
+  ##  cursor.execute(" INSERT INTO tb_fornecedores(nome, cnpj, email, telefone, celular, cep, endereco, numero, complemento, bairro, cidade, estado)"+
+  ##                                    "VALUES('Pamela','9213aslkl','joao_@hotmail.com','1231rwer','01293-019','123123','R.tal',123,'Ali','Campo grabde','Teresinha','PE')")
+    
     conn.commit();
 
 def NovoCliente(nome, rg, cpf, email, telefone, celular, cep, endereco, numero, complemento, bairro, cidade, estado):
