@@ -26,35 +26,35 @@ def BancoDeDados():
                                  " ,estado      TEXT ) "                           );                                  
                  
     cursor.execute(" CREATE TABLE IF NOT EXISTS tb_fornecedores (                   "+
-                                " id INTEGER PRIMARY KEY AUTOINCREMENT ,           "+
-                                " nome TEXT,                                       "+
-                                " cnpj TEXT,                                       "+
-                                " email TEXT,                                      " +
-                                " telefone TEXT,                                   "+
-                                " celular TEXT,                                     "+
-                                " cep TEXT,                                         "+
-                                " endereco TEXT,                                    "+
-                                " numero INTEGER,                                   "+
-                                " complemento TEXT ,                                "+
-                                " bairro TEXT ,"+
-                                " cidade TEXT ,"+
-                                " estado TEXT )  "                                   );                              
+                                " id             INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                                " nome           TEXT,                              "+
+                                " cnpj           TEXT,                              "+
+                                " email          TEXT,                             " +
+                                " telefone       TEXT,                              "+
+                                " celular        TEXT,                              "+
+                                " cep            TEXT,                              "+
+                                " endereco       TEXT,                              "+
+                                " numero         INTEGER,                           "+
+                                " complemento    TEXT ,                             "+
+                                " cidade         TEXT ,                             "+
+                                " bairro         TEXT ,                             "+
+                                " estado         TEXT )  "                           );                              
     
     cursor.execute(" CREATE TABLE IF NOT EXISTS tb_produtos (                        "+
-                                " id INTEGER PRIMARY KEY AUTOINCREMENT,              "+
-                                " descricao TEXT,"+
-                                " preco DECIMAL(10, 2),"+
-                                " qtd_estoque INTEGER,"+
-                                " for_id INTEGER,"+
+                                " id             INTEGER PRIMARY KEY AUTOINCREMENT,  "+
+                                " descricao      TEXT,                               "+
+                                " preco          DECIMAL(10, 2),                     "+
+                                " qtd_estoque    INTEGER,                            "+
+                                " for_id         INTEGER,                            "+
                                 " FOREIGN KEY (for_id) REFERENCES tb_fornecedores(id)"+
-                                " )"                           ); 
+                                " )"                                                  ); 
                                 
                   
     
     print('Conexão com Bando de dados--> SUCESSO ');
 
-  ##  cursor.execute(" INSERT INTO tb_fornecedores(nome, cnpj, email, telefone, celular, cep, endereco, numero, complemento, bairro, cidade, estado)"+
-  ##                                    "VALUES('Pamela','9213aslkl','joao_@hotmail.com','1231rwer','01293-019','123123','R.tal',123,'Ali','Campo grabde','Teresinha','PE')")
+    cursor.execute(" INSERT INTO tb_fornecedores(nome, cnpj, email, telefone, celular, cep, endereco, numero, complemento, bairro, cidade, estado)"+
+                                      "VALUES('Pamela','9213aslkl','joao_@hotmail.com','1231rwer','01293-019','123123','R.tal',123,'Ali','Campo grabde','Teresinha','PE')")
     
     conn.commit();
 

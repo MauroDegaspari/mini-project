@@ -3,6 +3,10 @@ from tkinter import ttk
 
 windowCadastroProduto = Tk()
 
+class FuncoesProduto():
+    def btn_incluir(self):
+        pass
+
 class Application():
     def __init__(self):
         self.windowCadastroProduto = windowCadastroProduto
@@ -40,21 +44,20 @@ class Application():
 
     def LabelEEntry(self):
         
-        self.lbDescricao = Label(self.aba1, text='Descrição:')
-        self.lbDescricao.place(relx=0.01, rely=0.01)
+        self.lbDescricao = Label(self.aba1, text='Descrição:',background ='#C0C0C0')
+        self.lbDescricao.place(relx=0.01, rely=0.08)
         self.entryDescricao = Entry(self.aba1)
-        self.entryDescricao.place(relx=0.12, rely=0.03,relwidth=0.30, relheight=0.10 )
+        self.entryDescricao.place(relx=0.09, rely=0.07,relwidth=0.30, relheight=0.07 )
 
-        self.lbDescricao = Label(self.aba1, text='Preço:')
-        self.lbDescricao.place(relx=0.04, rely=0.13)
+        self.lbDescricao = Label(self.aba1, text='Preço:',background ='#C0C0C0')
+        self.lbDescricao.place(relx=0.04, rely=0.18)
         self.entryDescricao = Entry(self.aba1)
-        self.entryDescricao.place(relx=0.12, rely=0.15,relwidth=0.10, relheight=0.10 )
+        self.entryDescricao.place(relx=0.09, rely=0.18,relwidth=0.10, relheight=0.07)
 
-        self.lbDescricao = Label(self.aba1, text='Quantidade:')
-        self.lbDescricao.place(relx=0.00, rely=0.26)
+        self.lbDescricao = Label(self.aba1, text='Quantidade:',background ='#C0C0C0')
+        self.lbDescricao.place(relx=0.00, rely=0.28)
         self.entryDescricao = Entry(self.aba1)
-        self.entryDescricao.place(relx=0.12, rely=0.27,relwidth=0.10, relheight=0.10 )
-
+        self.entryDescricao.place(relx=0.09, rely=0.28,relwidth=0.10, relheight=0.07 )
 
     def Botoes(self):
         self.btnNovo = Button(self.windowCadastroProduto, text='Incluir Produto')

@@ -23,7 +23,6 @@ class FuncoesApp():
         self.entryCPF.delete(0,END)
 
     def btn_novo(self):
-       ##self.cod = self.entryCodigo.get()
        self.nome = str(self.entryNome.get())
        self.email = self.entryEmail.get()
        self.celular = self.entryCelular.get()
@@ -43,6 +42,7 @@ class FuncoesApp():
        else:            
            NovoCliente(self.nome, self.rg, self.cpf,self.email,self.telefone,self.celular,self.cep,self.endereco,self.numero,self.complemento,self.bairro, self.cidade, self.estado)
            self.btn_limpar()
+   
     def Select_ListaCliente(self):
        ## self.lista.delete(self.lista.get_children)
         SelectCliente(self.lista)
