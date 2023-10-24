@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import ttk
 
 windowCadastroProduto = Tk()
 
@@ -7,6 +8,7 @@ class Application():
         self.windowCadastroProduto = windowCadastroProduto
         self.ConfigTela()
         self.Frames()
+        self.Abas()
         self.LabelEEntry()
         self.Botoes()
         self.windowCadastroProduto.mainloop()
@@ -20,23 +22,37 @@ class Application():
          self.windowCadastroProduto.minsize(width=350, height=400)
 
     def Frames(self):
-        self.framePrincipal = Frame(self.windowCadastroProduto, border=80 )
-        self.framePrincipal.place(relx=0.01,rely=0.20, relwidth=0.98, relheight=0.70)
+        self.frameTOP = Frame(self.windowCadastroProduto, border=80 )
+        self.frameTOP.place(relx=0.01,rely=0.03, relwidth=0.98, relheight=0.15)
+
+    def Abas(self):
+        self.abas = ttk.Notebook(self.windowCadastroProduto)
+        
+        self.aba1 = Frame(self.abas)
+        self.aba1.configure(background="#C0C0C0")
+        self.abas.add(self.aba1, text="Cadastros")
+        
+        self.aba2 = Frame(self.abas)
+        self.aba2.configure(background="pink")
+        self.abas.add(self.aba2, text="Custo/preço de venda")
+
+        self.abas.place(relx=0.01,rely=0.20, relwidth=0.98, relheight=0.70)
 
     def LabelEEntry(self):
-        self.lbDescricao = Label(self.framePrincipal, text='Descrição:')
+        
+        self.lbDescricao = Label(self.aba1, text='Descrição:')
         self.lbDescricao.place(relx=0.01, rely=0.01)
-        self.entryDescricao = Entry(self.framePrincipal)
+        self.entryDescricao = Entry(self.aba1)
         self.entryDescricao.place(relx=0.12, rely=0.03,relwidth=0.30, relheight=0.10 )
 
-        self.lbDescricao = Label(self.framePrincipal, text='Preço:')
+        self.lbDescricao = Label(self.aba1, text='Preço:')
         self.lbDescricao.place(relx=0.04, rely=0.13)
-        self.entryDescricao = Entry(self.framePrincipal)
+        self.entryDescricao = Entry(self.aba1)
         self.entryDescricao.place(relx=0.12, rely=0.15,relwidth=0.10, relheight=0.10 )
 
-        self.lbDescricao = Label(self.framePrincipal, text='Quantidade:')
+        self.lbDescricao = Label(self.aba1, text='Quantidade:')
         self.lbDescricao.place(relx=0.00, rely=0.26)
-        self.entryDescricao = Entry(self.framePrincipal)
+        self.entryDescricao = Entry(self.aba1)
         self.entryDescricao.place(relx=0.12, rely=0.27,relwidth=0.10, relheight=0.10 )
 
 

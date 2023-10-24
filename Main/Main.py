@@ -1,44 +1,44 @@
 from tkinter import *
 from tkinter import ttk
 
-index = Tk()
+main = Tk()
 
 class Application():
     def __init__(self):
-        self.index = index
+        self.main = main
         self.TelaConfig()
         self.Frames()
         self.LabelsEntry()
         self.Botoes()
         self.listaCompra()
-        self.index.mainloop()
+        self.main.mainloop()
 
     def TelaConfig(self):
-        self.index.title("VENDAS")
-        self.index.configure(background= '#DCDCDC')
-        self.index.resizable(True, True)
-        self.index.geometry("1280x720")
-        self.index.maxsize(width=1500, height=800)
-        self.index.minsize(width=1280, height=720)
+        self.main.title("VENDAS")
+        self.main.configure(background= '#DCDCDC')
+        self.main.resizable(True, True)
+        self.main.geometry("1280x720")
+        self.main.maxsize(width=1500, height=800)
+        self.main.minsize(width=1280, height=720)
 
     def Botoes(self):
-            ## INDEX
-        self.btnClientes = Button(self.index,text='CLIENTES', command=self.ChamaTelaCadastroCliente)
+            ## main
+        self.btnClientes = Button(self.main,text='CLIENTES', command=self.ChamaTelaCadastroCliente)
         self.btnClientes.place(relx=0.88, rely=0.13, relwidth=0.1, relheight=0.2)
 
-        self.btnFornecedor = Button(self.index,text='Fornecedores')
+        self.btnFornecedor = Button(self.main,text='Fornecedores')
         self.btnFornecedor.place(relx=0.88, rely=0.34, relwidth=0.1, relheight=0.2)
 
-        self.btnProduto = Button(self.index,text='PRODUTOS')
+        self.btnProduto = Button(self.main,text='PRODUTOS', command=self.ChamaTelaCadastroProdutos)
         self.btnProduto.place(relx=0.88, rely=0.55, relwidth=0.1, relheight=0.2)
 
-        self.btnFuncionarios = Button(self.index,text='PRODUTOS')
+        self.btnFuncionarios = Button(self.main,text='Funcionarios')
         self.btnFuncionarios.place(relx=0.88, rely=0.76, relwidth=0.1, relheight=0.2)
 
-        self.btnPagamento = Button(self.index,text='PAGAMENTO', background='#00FF7F')
+        self.btnPagamento = Button(self.main,text='PAGAMENTO', background='#00FF7F')
         self.btnPagamento.place(relx=0.60, rely=0.85, relwidth=0.12, relheight=0.09)
 
-        self.btnCancelar = Button(self.index,text='CANELAR VENDA', background='#DC143C')
+        self.btnCancelar = Button(self.main,text='CANELAR VENDA', background='#DC143C')
         self.btnCancelar.place(relx=0.74, rely=0.85, relwidth=0.12, relheight=0.09)
 
             ## FRAME1
@@ -120,25 +120,31 @@ class Application():
         self.scrool.place(relx=1.27, rely=-0.28, relwidth=0.14,relheight=1.65 )
         
     def Frames(self):
-        self.frame = Frame(self.index,border=80, )
+        self.frame = Frame(self.main,border=80, )
         self.frame.place(relx=0.59,rely=0.13, relwidth=0.28, relheight=0.52)
 
-        self.frame1 = Frame(self.index,border=80,background="#A9A9A9")
+        self.frame1 = Frame(self.main,border=80,background="#A9A9A9")
         self.frame1.place(relx=0.01,rely=0.13, relwidth=0.57, relheight=0.20)
 
-        self.frame2 = Frame(self.index,border=80)
+        self.frame2 = Frame(self.main,border=80)
         self.frame2.place(relx=0.01,rely=0.35, relwidth=0.57, relheight=0.60)
 
-        self.frame3 = Frame(self.index,border=80, background= '#D2B48C')
+        self.frame3 = Frame(self.main,border=80, background= '#D2B48C')
         self.frame3.place(relx=0.59,rely=0.67, relwidth=0.28, relheight=0.13)
 
     def ChamaTelaCadastroCliente(self):
-            from CadastroCliente import Application
-            self.janela = Toplevel(Application)
-            self.janela.focus_force()
-            self.janela.grab_set()
-            self.janela.mainloop()
-            
+        from CadastroCliente import Application
+        self.janela = Toplevel(Application)
+        self.janela.focus_force()
+        self.janela.grab_set()
+        self.janela.mainloop()
+
+    def ChamaTelaCadastroProdutos(self):
+        from CadastroProdutos import Application
+        self.janela = Toplevel(Application)
+        self.janela.focus_force()
+        self.janela.grab_set()
+        self.janela.mainloop() 
         
 
 Application()    
